@@ -4,7 +4,7 @@ import signal
 import sys
 import RPi.GPIO as GPIO
 
-BUTTON_GPIO = 16
+BUTTON_GPIO = 7
 
 def signal_handler(sig, frame):
     GPIO.cleanup()
@@ -23,5 +23,5 @@ if __name__ == '__main__':
     GPIO.add_event_detect(BUTTON_GPIO, GPIO.BOTH, 
             callback=button_callback, bouncetime=50)
     
-    signal.signal(signal.SIGINT, signal_handler)
+    signal.signal(gitsignal.SIGINT, signal_handler)
     signal.pause()
