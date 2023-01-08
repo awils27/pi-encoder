@@ -4,24 +4,25 @@ import signal
 import sys
 import RPi.GPIO as GPIO
 
-BUTTON_GPIO = 7
+ENCODER_A = 7
+ENCODER_B = 8
 
 def signal_handler(sig, frame):
     GPIO.cleanup()
     sys.exit(0)
 
 def button_callback(channel):
-    if not GPIO.input(BUTTON_GPIO):
+    if not GPIO.input(ENCODER_A):
         print("Button pressed!")
     else:
         print("Button released!")
 
 if __name__ == '__main__':
     GPIO.setmode(GPIO.BCM)
-    GPIO.setup(BUTTON_GPIO, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+    GPIO.setup(ENCODER_A, GPIO.IN, pull_up_down=GPIO.PUD_UP)
     
-    GPIO.add_event_detect(BUTTON_GPIO, GPIO.BOTH, 
+    GPIO.add_event_detect(ENCODER_A, GPIO.BOTH, 
             callback=button_callback, bouncetime=50)
     
-    signal.signal(gitsignal.SIGINT, signal_handler)
+    signal.signal(signal.SIGINT, signal_handler)
     signal.pause()
