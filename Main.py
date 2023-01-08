@@ -4,7 +4,7 @@ import signal
 import sys
 import RPi.GPIO as GPIO
 
-ENCODER_A = 7
+ENCODER_A = 21
 ENCODER_B = 8
 
 def signal_handler(sig, frame):
