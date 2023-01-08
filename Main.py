@@ -4,8 +4,6 @@ import signal
 import sys
 import RPi.GPIO as GPIO
 
-import time
-
 ENCODER_A = 21
 ENCODER_B = 8
 debounce_time = 0
@@ -15,7 +13,7 @@ def signal_handler(sig, frame):
     sys.exit(0)
 
 def button_callback(channel):
-    if (not GPIO.input(ENCODER_A) and (time.ticks_ms()-debounce_time) > 300):
+    if not GPIO.input(ENCODER_A):
         print("Button pressed!")
     else:
         print("Button released!")
