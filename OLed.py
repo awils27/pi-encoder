@@ -1,4 +1,4 @@
-from RPi import GPIO, SPI
+from RPi import GPIO
 import framebuf
 import time
 import spidev
