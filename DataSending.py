@@ -16,7 +16,7 @@ class SendData(Thread):
 
         while True:
 
-            struct.focus = abs(Encoder.counter)
+            struct.focus = abs(0.25*Encoder.counter)
             bits = struct.createFreeD().encode()
 
 
