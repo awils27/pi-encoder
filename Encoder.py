@@ -2,6 +2,7 @@ from RPi import GPIO
 from time import sleep
 import signal
 import sys
+from threading import Thread
 
 
 counter = 0
@@ -15,23 +16,22 @@ def SetupEncoders(EncoderA, EncoderB):
 
     return
 
+class EncoderValues(Thread):
+    def ReadEncoderValues(EncoderA, EncoderB):
+        print ("Reading Encoder")
+        LastState = GPIO.input(EncoderA)
+        global counter
+        while True:
+            AState = GPIO.input(EncoderA)
+            BState = GPIO.input(EncoderB)
 
-def ReadEncoderValues(EncoderA, EncoderB):
-    print ("Reading Encoder")
-    LastState = GPIO.input(EncoderA)
-    global counter
-    while True:
-        AState = GPIO.input(EncoderA)
-        BState = GPIO.input(EncoderB)
+            if AState != LastState:
+                if BState !=AState:
+                    counter += 1
 
-        if AState != LastState:
-            if BState !=AState:
-                counter += 1
+                else:
+                    counter -= 1
 
-            else:
-                counter -= 1
+                print ((360/400)*counter)
 
-            print ((360/400)*counter)
-
-        LastState = AState
-        sleep(0.001)
+            LastState = AState
