@@ -32,6 +32,6 @@ class EncoderThread(Thread):
                 else:
                     counter -= 1
 
-                print (0.5*counter)
+                print (0.25*counter)
 
             LastState = AState
