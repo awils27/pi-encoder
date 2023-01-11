@@ -9,6 +9,7 @@ from threading import Thread
 class SendData(Thread):
 
     def SendFreeDData(IP, Port):
+        print ("Sending Data")
         struct = FreeDWrapper(0,0,0,0,0,0,0,0)
         bits: 'bytes' = struct.createFreeD().encode()
         sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
