@@ -13,6 +13,8 @@ def SetupEncoders(EncoderA, EncoderB):
 
     print ("Encoders ready.")
 
+    return
+
 
 def ReadEncoderValues(EncoderA, EncoderB):
     print ("Reading Encoder")
