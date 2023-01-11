@@ -16,10 +16,9 @@ class SendData(Thread):
 
         while True:
 
-            struct.focus = Encoder.counter
+            struct.focus = abs(Encoder.counter)
             bits = struct.createFreeD().encode()
 
 
             sock.sendto(bits, (IP, Port))
-            print ("Data Sent")
             sleep(1/60)
