@@ -1,10 +1,19 @@
 from RPi import GPIO, SPI
 import framebuf
 import time
+import spidev
+
+bus = 0
+device = 1
+spi = spidev.SpiDev()
+spi.open(bus, device)
+
+spi.max_speed_hz = 500000
+spi.mode = 0
 
 DC = 17
-RST = 26
-MOSI = 22
+RST = 22
+MOSI = 10
 SCK = 11
 CS = 27
 
@@ -20,9 +29,6 @@ class OLED_1inch3(framebuf.FrameBuffer):
         self.rst = GPIO.setup(RST, GPIO.OUT)
         
         self.cs(1)
-        self.spi = SPI(1)
-        self.spi = SPI(1,2000_000)
-        self.spi = SPI(1,20000_000,polarity=0, phase=0,sck=GPSCK,mosi=GPMOSI,miso=None)
         self.dc = GPIO.setup(DC, GPIO.OUT)
         self.dc(1)
         self.buffer = bytearray(self.height * self.width // 8)
