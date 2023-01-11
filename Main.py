@@ -8,18 +8,17 @@ EncoderB = 21
 PulsesPerRev = 400
 
 def button_pressed_callback(channel):
-    print (Encoder.counter)
     Encoder.counter = 0
     print("Lens Value Reset")
 
 
 
-ThreadButtonSetup = Thread(target = Button.SetupButton, args = (Button_GPIO, button_pressed_callback))
-
-ThreadButtonSetup.start()
-ThreadButtonSetup.join()
-
 
 Encoder.SetupEncoders(EncoderA, EncoderB)
 
-Encoder.ReadEncoderValues(EncoderA, EncoderB)
+ThreadEncoders = Thread(target = Encoder.ReadEncoderValues, args = (EncoderA, EncoderB))
+
+ThreadEncoders.start()
+ThreadEncoders.join()
+
+Button.SetupButton(Button_GPIO, button_pressed_callback)
