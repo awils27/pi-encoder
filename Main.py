@@ -3,9 +3,8 @@ import Button
 import Encoder
 
 Button_GPIO = 16
-EncoderA = 20
-EncoderB = 21
-PulsesPerRev = 400
+EncoderA = 21
+EncoderB = 20
 
 def button_pressed_callback(channel):
     Encoder.counter = 0
