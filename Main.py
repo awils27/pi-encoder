@@ -1,35 +1,19 @@
 from RPi import GPIO
 from time import sleep
+import signal
+import sys
 
-EncoderA = 20
-EncoderB = 21
-PulsesPerRev = 400
-
-GPIO.setmode(GPIO.BCM)
-GPIO.setup(EncoderA, GPIO.IN, pull_up_down=GPIO.PUD_UP)
-GPIO.setup(EncoderB, GPIO.IN, pull_up_down=GPIO.PUD_UP)
-
-counter = 0
-LastState = GPIO.input(EncoderA)
-
-try:
-    while True:
-        AState = GPIO.input(EncoderA)
-        BState = GPIO.input(EncoderB)
-
-        if AState != LastState:
-            if BState !=AState:
-                counter += 1
-
-            else:
-                counter -= 1
-
-            degrees = (360/PulsesPerRev)*counter
-
-            print (str(degrees) + " degrees")
-
-        LastState = AState
-        sleep(0.001)
-
-finally:
+BUTTON_GPIO = 16
+def signal_handler(sig, frame):
     GPIO.cleanup()
+    sys.exit(0)
+def button_pressed_callback(channel):
+    print("Button pressed!")
+if __name__ == '__main__':
+    GPIO.setmode(GPIO.BCM)
+    GPIO.setup(BUTTON_GPIO, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+    GPIO.add_event_detect(BUTTON_GPIO, GPIO.FALLING, 
+            callback=button_pressed_callback, bouncetime=100)
+    
+    signal.signal(signal.SIGINT, signal_handler)
+    signal.pause()
