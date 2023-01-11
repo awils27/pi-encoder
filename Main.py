@@ -17,9 +17,4 @@ Button.SetupButton(Button_GPIO, button_pressed_callback)
 
 Encoder.SetupEncoders(EncoderA, EncoderB)
 
-
-if __name__ == "__main__":
-    thread = Thread(target = Encoder.ReadEncoderVlaues, args = (EncoderA, EncoderB, ))
-    thread.start()
-    thread.join()
-    print("thread finished...exiting")
+Encoder.ReadEncoderVlaues(EncoderA, EncoderB)
