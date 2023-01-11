@@ -18,4 +18,5 @@ def SetupButton(BUTTON_PIN, Callback):
     
     signal.signal(signal.SIGINT, signal_handler)
     signal.pause()
-
+    
+    return

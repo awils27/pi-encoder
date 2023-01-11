@@ -12,7 +12,13 @@ def button_pressed_callback(channel):
     Encoder.counter = 0
     print("Lens Value Reset")
 
-Button.SetupButton(Button_GPIO, button_pressed_callback)
+
+
+ThreadButtonSetup = Thread(target = Button.SetupButton, args = (Button_GPIO, button_pressed_callback))
+
+ThreadButtonSetup.start()
+ThreadButtonSetup.join()
+
 
 Encoder.SetupEncoders(EncoderA, EncoderB)
 
