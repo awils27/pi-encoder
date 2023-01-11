@@ -1,10 +1,15 @@
-EncoderA = 20
-EncoderB = 21
-PulsesPerRev = 400
+from RPi import GPIO
+from time import sleep
+import signal
+import sys
 
-GPIO.setmode(GPIO.BCM)
-GPIO.setup(EncoderA, GPIO.IN, pull_up_down=GPIO.PUD_UP)
-GPIO.setup(EncoderB, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+
+
+
+def SetupEncoders(EncoderA, EncoderB):
+    GPIO.setmode(GPIO.BCM)
+    GPIO.setup(EncoderA, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+    GPIO.setup(EncoderB, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
 counter = 0
 LastState = GPIO.input(EncoderA)
