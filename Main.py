@@ -4,8 +4,8 @@ import Encoder
 import DataSending
 
 Button_GPIO = 16
-EncoderA = 20
-EncoderB = 21
+EncoderA = 21
+EncoderB = 20
 UDP_IP = "192.168.1.68"
 UDP_PORT = 4000
 
