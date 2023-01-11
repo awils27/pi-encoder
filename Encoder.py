@@ -11,8 +11,11 @@ def SetupEncoders(EncoderA, EncoderB):
     GPIO.setup(EncoderA, GPIO.IN, pull_up_down=GPIO.PUD_UP)
     GPIO.setup(EncoderB, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
+    print ("Encoders ready.")
+
 
 def ReadEncoderValues(EncoderA, EncoderB):
+    print ("Reading Encoder")
     LastState = GPIO.input(EncoderA)
     global counter
     while True:

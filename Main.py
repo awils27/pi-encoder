@@ -14,7 +14,6 @@ def button_pressed_callback(channel):
 
 Button.SetupButton(Button_GPIO, button_pressed_callback)
 
-
 Encoder.SetupEncoders(EncoderA, EncoderB)
 
 Encoder.ReadEncoderValues(EncoderA, EncoderB)
