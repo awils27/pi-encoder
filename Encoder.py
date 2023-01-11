@@ -16,7 +16,7 @@ def SetupEncoders(EncoderA, EncoderB):
 
     return
 
-class EncoderValues(Thread):
+class EncoderThread(Thread):
     def ReadEncoderValues(EncoderA, EncoderB):
         print ("Reading Encoder")
         LastState = GPIO.input(EncoderA)

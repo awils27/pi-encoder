@@ -15,7 +15,8 @@ def button_pressed_callback(channel):
 
 
 Encoder.SetupEncoders(EncoderA, EncoderB)
-T1Encoders = Thread(target = Encoder.ReadEncoderValues, args = (EncoderA, EncoderB))
+T1Encoders = Thread(target = Encoder.EncoderThread.ReadEncoderValues, args = (EncoderA, EncoderB))
 T1Encoders.start()
+
 
 Button.SetupButton(Button_GPIO, button_pressed_callback)
