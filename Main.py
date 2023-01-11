@@ -1,29 +1,35 @@
-#!/usr/bin/env python3          
-                                
-import signal                   
-import sys
-import RPi.GPIO as GPIO
+from RPi import GPIO
+from time import sleep
 
-ENCODER_A = 21
-ENCODER_B = 8
-debounce_time = 0
+EncoderA = 20
+EncoderB = 21
+PulsesPerRev = 400
 
-def signal_handler(sig, frame):
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(EncoderA, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+GPIO.setup(EncoderB, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+
+counter = 0
+LastState = GPIO.input(EncoderA)
+
+try:
+    while True:
+        AState = GPIO.input(EncoderA)
+        BState = GPIO.input(EncoderB)
+
+        if AState != LastState:
+            if BState !=AState:
+                counter += 1
+
+            else:
+                counter -= 1
+
+            degrees = (360/PulsesPerRev)*counter
+
+            print (str(degrees) + " degrees")
+
+        LastState = AState
+        sleep(0.001)
+
+finally:
     GPIO.cleanup()
-    sys.exit(0)
-
-def button_callback(channel):
-    if not GPIO.input(ENCODER_A):
-        print("Button pressed!")
-    else:
-        print("Button released!")
-
-if __name__ == '__main__':
-    GPIO.setmode(GPIO.BCM)
-    GPIO.setup(ENCODER_A, GPIO.IN, pull_up_down=GPIO.PUD_UP)
-    
-    GPIO.add_event_detect(ENCODER_A, GPIO.BOTH, 
-            callback=button_callback, bouncetime=50)
-    
-    signal.signal(signal.SIGINT, signal_handler)
-    signal.pause()
