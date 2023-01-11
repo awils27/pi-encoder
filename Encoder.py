@@ -27,7 +27,7 @@ def ReadEncoderVlaues(EncoderA, EncoderB):
                 else:
                     counter -= 1
 
-                print ((360/400)*counter)
+            print ((360/400)*counter)
 
             LastState = AState
             sleep(0.001)
