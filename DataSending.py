@@ -21,5 +21,5 @@ class SendData(Thread):
 
 
             sock.sendto(bits, (IP, Port))
-
+            print ("Data Sent")
             sleep(1/60)
