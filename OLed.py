@@ -10,8 +10,8 @@ device = get_device(arguments)
 print("Testing screen updates...")
 while True:
     with canvas(device) as draw:
-        draw.text((4, 2), "Lens Encoder   V15.04", fill="white")
-        draw.text((4, 15), "Zoom   1000", fill="white")
-        draw.text((4, 30), "Focus   1000", fill="white")
+        draw.text((4, 2), "Lens Encoder V15.04", fill="white")
+        draw.text((4, 15), "Zoom  1000", fill="white")
+        draw.text((4, 30), "Focus  1000", fill="white")
         draw.text((4, 45), "192.168.1.10:4000", fill="white")
         time.sleep(0.1)
