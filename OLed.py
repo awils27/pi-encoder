@@ -11,7 +11,7 @@ print("Testing screen updates...")
 while True:
     with canvas(device) as draw:
         draw.text((3, 2), "Lens Encoder   V15.04", fill="white")
-        draw.text((3, 20), "Lens Encoder   V15.04", fill="white")
-        draw.text((3, 40), "Lens Encoder   V15.04", fill="white")
-        draw.text((3, 60), "Lens Encoder   V15.04", fill="white")
+        draw.text((3, 15), "Lens Encoder   V15.04", fill="white")
+        draw.text((3, 30), "Lens Encoder   V15.04", fill="white")
+        draw.text((3, 45), "Lens Encoder   V15.04", fill="white")
         time.sleep(0.1)
