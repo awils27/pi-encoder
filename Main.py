@@ -5,6 +5,7 @@ import DataSending
 import atexit
 import Oled
 from RPi import GPIO
+import socket
 
 
 Button_GPIO = 16
@@ -20,6 +21,7 @@ RST_Pin = "25"
 ScreenRot = "2"
 Encoder_Frq = 60
 
+print (socket.gethostbyname(socket.gethostname()))
 
 
 def ExitHandler():
