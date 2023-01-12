@@ -9,7 +9,7 @@ from luma.oled.device import ssd1306, ssd1309, ssd1325, ssd1331, sh1106, ws0010
 serial = spi(device=0, port=0)
 
 # substitute ssd1331(...) or sh1106(...) below if using that device
-device = ssd1306(serial)
+device = sh1106(serial)
 
 with canvas(device) as draw:
     draw.rectangle(device.bounding_box, outline="white", fill="black")
