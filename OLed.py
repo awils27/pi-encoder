@@ -72,3 +72,5 @@ draw.text(
 # Display image
 oled.image(image)
 oled.show()
+
+input('Press ENTER to exit')
