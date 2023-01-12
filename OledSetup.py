@@ -25,6 +25,7 @@ def get_device(actual_args=arguments):
 
     # create device
     try:
+        print (args)
         device = cmdline.create_device(args)
         return device
 

@@ -18,16 +18,8 @@ from luma.core.render import canvas
 from luma.core.sprite_system import framerate_regulator
 
 
-
-
-from luma.core import cmdline, error
-
 arguments = ['--display', 'sh1106', '--interface', 'gpio_cs_spi', '--gpio-data-command', '24', '--gpio-chip-select', '8', '--gpio-reset', '25', '--rotate', '2']
-parser = cmdline.create_parser(description='luma.examples arguments')
-args = parser.parse_args(arguments)
 
-
-print (args)
 
 
 
