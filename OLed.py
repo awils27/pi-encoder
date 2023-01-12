@@ -15,9 +15,9 @@ while True:
         else:
             text = "60hz"
 
-    with canvas(device) as draw:
-        draw.text((5, 2), "Lens Encoder V15.04", fill="white")
-        draw.text((5, 15), "Zoom  1000", fill="white")
-        draw.text((5, 30), "Focus  1000", fill="white")
-        draw.text((5, 45), text, fill="white")
-        time.sleep(0.1)
+        with canvas(device) as draw:
+            draw.text((5, 2), "Lens Encoder V15.04", fill="white")
+            draw.text((5, 15), "Zoom  1000", fill="white")
+            draw.text((5, 30), "Focus  1000", fill="white")
+            draw.text((5, 45), text, fill="white")
+            time.sleep(0.1)
