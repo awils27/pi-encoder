@@ -9,11 +9,15 @@ device = get_device(arguments)
 
 print("Testing screen updates...")
 while True:
+    for x in range(40):
+        if x < 20:
+            text = "192.168.1.10:4000"
+        else:
+            text = "60hz"
+
     with canvas(device) as draw:
         draw.text((5, 2), "Lens Encoder V15.04", fill="white")
         draw.text((5, 15), "Zoom  1000", fill="white")
         draw.text((5, 30), "Focus  1000", fill="white")
-        draw.text((5, 45), "192.168.1.10:4000", fill="white")
-        time.sleep(2)
-        draw.text((5, 45), "60hz", fill="white")
-        time.sleep(2)
+        draw.text((5, 45), text, fill="white")
+        time.sleep(0.1)
