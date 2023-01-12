@@ -36,7 +36,7 @@ def get_device(actual_args=None):
         return None
 
     
-device = get_device(arguments)
+device = get_device()
 
 with canvas(device) as draw:
     draw.rectangle(device.bounding_box, outline="white", fill="black")
