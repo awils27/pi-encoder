@@ -9,7 +9,8 @@ from luma.core import cmdline
 serial = gpio_cs_spi(device=0, port=0, gpio_CS=5)
 
 # substitute ssd1331(...) or sh1106(...) below if using that device
-device = sh1106(serial, "--gpio-data-command 6 --gpio-reset 4")
+params = dict(vars("--gpio-data-command 6 --gpio-reset 4"))
+device = sh1106(serial, params)
 
 with canvas(device) as draw:
     draw.rectangle(device.bounding_box, outline="white", fill="black")
