@@ -8,7 +8,6 @@ arguments = ['--display', 'sh1106', '--interface', 'gpio_cs_spi', '--gpio-data-c
 device = get_device(arguments)
 
 print("Testing screen updates...")
-time.sleep(2)
 while True:
     with canvas(device) as draw:
         draw.text((3, 2), "Lens Encoder", fill="white")
