@@ -21,7 +21,7 @@ RST_Pin = "25"
 ScreenRot = "2"
 Encoder_Frq = 60
 
-print (socket.gethostbyname(socket.getfqdn()))
+print (socket.gethostbyname(socket.gethostname()))
 
 
 def ExitHandler():
