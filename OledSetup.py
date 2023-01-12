@@ -7,9 +7,9 @@ import logging
 
 from luma.core import cmdline, error
 
+arguments = ['--display', 'sh1106', '--interface', 'gpio_cs_spi', '--gpio-data-command', '24', '--gpio-chip-select', '8', '--gpio-reset', '25', '--rotate', '2']
 
-
-def get_device(actual_args=None):
+def get_device(actual_args=arguments):
     """
     Create device from command-line arguments and return it.
     """
