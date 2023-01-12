@@ -46,6 +46,7 @@ T3Screen = Thread(target = Oled.OLEDScreen.StartOLEDDisplay, args = (UDP_IP, UDP
 
 T1Encoders.start()
 T2Data.start()
+T3Screen.start()
 
 Button.SetupButton(Button_GPIO, button_pressed_callback)
 
