@@ -21,8 +21,6 @@ from luma.core.sprite_system import framerate_regulator
 arguments = ['--display', 'sh1106', '--interface', 'gpio_cs_spi', '--gpio-data-command', '24', '--gpio-chip-select', '8', '--gpio-reset', '25', '--rotate', '2']
 
 
-
-
 def radians(degrees):
     return degrees * math.pi / 180
 
@@ -130,7 +128,7 @@ def main(num_iterations=sys.maxsize):
 
 if __name__ == "__main__":
     try:
-        device = get_device()
+        device = get_device(arguments)
         main()
     except KeyboardInterrupt:
         pass
