@@ -8,7 +8,8 @@ import logging
 
 from luma.core import cmdline, error
 
-actual_args = "--display sh1106 --interface gpio_cs_spi --gpio-data-command 6  --gpio-chip-select 5 --gpio-reset 4 --rotate 2"
+arguments = "--display sh1106 --interface gpio_cs_spi --gpio-data-command 6  --gpio-chip-select 5 --gpio-reset 4 --rotate 2"
+
 
 
 def get_device(actual_args=None):
@@ -35,6 +36,7 @@ def get_device(actual_args=None):
         return None
 
     
+device = get_device(arguments)
 
 with canvas(device) as draw:
     draw.rectangle(device.bounding_box, outline="white", fill="black")
