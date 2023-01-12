@@ -10,9 +10,10 @@ device = get_device(arguments)
 
 print("Testing screen updates...")
 time.sleep(2)
-for x in range(40):
-    with canvas(device) as draw:
-        now = datetime.datetime.now()
-        draw.text((x, 4), str(now.date()), fill="white")
-        draw.text((10, 16), str(now.time()), fill="white")
-        time.sleep(0.1)
+while True:
+    for x in range(40):
+        with canvas(device) as draw:
+            now = datetime.datetime.now()
+            draw.text((x, 4), str(now.date()), fill="white")
+            draw.text((10, 16), str(now.time()), fill="white")
+            time.sleep(0.1)
