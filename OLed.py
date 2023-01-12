@@ -1,5 +1,4 @@
 import time
-import datetime
 from OledSetup import get_device
 from luma.core.render import canvas
 
@@ -12,7 +11,5 @@ print("Testing screen updates...")
 time.sleep(2)
 while True:
     with canvas(device) as draw:
-        now = datetime.datetime.now()
-        draw.text((10, 4), str(now.date()), fill="white")
-        draw.text((10, 16), str(now.time()), fill="white")
+        draw.text((10, 2), "Lens Encoder", fill="white")
         time.sleep(0.1)
