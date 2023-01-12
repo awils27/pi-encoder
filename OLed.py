@@ -4,7 +4,6 @@ from luma.core.render import canvas
 import Encoder
 from threading import Thread
 
-#['--display', 'sh1106', '--interface', 'gpio_cs_spi', '--gpio-data-command', '24', '--gpio-chip-select', '8', '--gpio-reset', '25', '--rotate', '2']
 
 def IntialiseDisplay(display, interface, DC, CS, RST, Rot):
 
