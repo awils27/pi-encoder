@@ -14,4 +14,6 @@ while True:
         draw.text((5, 15), "Zoom  1000", fill="white")
         draw.text((5, 30), "Focus  1000", fill="white")
         draw.text((5, 45), "192.168.1.10:4000", fill="white")
-        time.sleep(0.1)
+        time.sleep(2)
+        draw.text((5, 45), "60hz", fill="white")
+        time.sleep(2)
