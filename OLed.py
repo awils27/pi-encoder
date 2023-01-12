@@ -32,7 +32,7 @@ def get_device(actual_args=None):
         parser.error(e)
         return None
 
-device = get_device(sh1106, interface=gpio_cs_spi, gpio_DC=6, gpio_CS=5, gpio_RST=4, rotate=2)
+device = get_device(sh1106, gpio_cs_spi, gpio_DC=6, gpio_CS=5, gpio_RST=4, rotate=2)
 
 
 with canvas(device) as draw:
