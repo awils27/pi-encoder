@@ -18,6 +18,8 @@ from luma.core.render import canvas
 from luma.core.sprite_system import framerate_regulator
 
 
+print (sys.argv[1:])
+
 def radians(degrees):
     return degrees * math.pi / 180
 
