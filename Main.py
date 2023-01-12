@@ -22,7 +22,7 @@ Encoder_Frq = 60
 
 import socket
 hostname = socket.getfqdn()
-print("IP Address:",socket.gethostbyname_ex(hostname)[2][1])
+print("IP Address:",socket.gethostbyname_ex(hostname))
 
 
 def ExitHandler():
